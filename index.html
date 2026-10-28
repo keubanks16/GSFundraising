@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GS Baseball Softball Fundraiser</title>
+<meta name="description" content="Sign up a team or yourself for the GS Baseball slow pitch softball fundraiser.">
+<meta name="theme-color" content="#0B2753">
+<link rel="icon" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&family=Graduate&display=swap" rel="stylesheet">
+<style>
+  :root{--ground:#E8ECF2;--surface:#FFFFFF;--surface-2:#F2F5F9;--ink:#0B1C3D;--ink-2:#4A5874;--line:#D4DBE6;
+    --navy:#0B2753;--navy-2:#12336A;--carolina:#6DA0D6;--accent:#245FA8;--accent-soft:#DCE8F6;--bad:#C3392D;--cut:10px;
+    --display:"Graduate","Rockwell","Roboto Slab",Georgia,serif;--body:"Barlow Semi Condensed","Arial Narrow","Helvetica Neue",system-ui,sans-serif}
+  *{box-sizing:border-box}
+  html{background:var(--navy)}
+  body{margin:0;background:var(--ground);color:var(--ink);font:17px/1.45 var(--body);padding:0 0 48px;min-height:100vh}
+  header{background:var(--navy);color:#fff;text-align:center;padding:calc(28px + env(safe-area-inset-top,0px)) 16px 34px;margin-bottom:-14px;
+    clip-path:polygon(0 0,100% 0,100% calc(100% - 22px),calc(100% - 22px) 100%,22px 100%,0 calc(100% - 22px));border-bottom:4px solid var(--carolina)}
+  header img{width:118px;height:auto;display:block;margin:0 auto 12px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35))}
+  .badge{display:inline-block;background:var(--carolina);color:var(--navy);font:15px var(--display);letter-spacing:.08em;padding:5px 14px;text-transform:uppercase;
+    clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+  h1{font:clamp(30px,8.5vw,46px)/1.05 var(--display);text-transform:uppercase;margin:14px 0 10px;letter-spacing:.01em}
+  h1 span{color:var(--carolina)}
+  header p{color:#C9D6EA;margin:0 auto;max-width:440px}
+  form{max-width:640px;margin:0 auto;padding:30px 16px 0}
+  fieldset{border:1px solid var(--line);background:var(--surface);padding:30px 16px 6px;margin:0 0 18px;position:relative;
+    clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut));box-shadow:0 1px 0 rgba(11,28,61,.04)}
+  legend{position:absolute;top:0;left:0;background:var(--navy);color:#fff;font:14px var(--display);letter-spacing:.08em;text-transform:uppercase;padding:5px 14px 5px 18px;
+    clip-path:polygon(var(--cut) 0,100% 0,calc(100% - 10px) 100%,0 100%,0 var(--cut))}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:520px){.row{grid-template-columns:1fr}}
+  label{display:block;font-size:15px;font-weight:700;margin-bottom:14px;color:var(--ink)}
+  label small{font-weight:500;color:var(--ink-2)}
+  input,select,textarea{width:100%;margin-top:6px;background:var(--surface-2);border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:12px;font:17px var(--body);-webkit-appearance:none;appearance:none}
+  select{background-image:linear-gradient(45deg,transparent 50%,var(--accent) 50%),linear-gradient(135deg,var(--accent) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 12px) 55%;background-size:6px 6px;background-repeat:no-repeat;padding-right:32px}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:transparent;background-color:#fff}
+  textarea{min-height:84px;resize:vertical}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
+  .chips label{margin:0;font-weight:600}
+  .chips input{display:none}
+  .chips span{display:inline-block;min-width:48px;text-align:center;padding:8px 12px;border:1px solid var(--line);background:var(--surface-2);cursor:pointer;font-size:15px;
+    clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+  .chips input:checked+span{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .check{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+  .check input{width:22px;height:22px;margin:1px 0 0;flex:none;accent-color:var(--accent);-webkit-appearance:checkbox;appearance:auto}
+  button{width:100%;background:var(--accent);color:#fff;border:0;padding:17px;font:20px var(--display);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
+    clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
+  button:active{background:var(--navy)}
+  button:disabled{opacity:.6}
+  .msg{max-width:640px;margin:14px auto 0;padding:0 16px;text-align:center;color:var(--bad);font-weight:600;min-height:1.5em}
+  .done{display:none;max-width:560px;margin:44px auto;text-align:center;background:var(--surface);border-top:4px solid var(--carolina);padding:34px 20px;
+    clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
+  .done h2{font:30px var(--display);text-transform:uppercase;color:var(--navy);margin:0 0 8px}
+  .done .ball{font-size:40px;margin-bottom:6px}
+  footer{text-align:center;color:var(--ink-2);font-size:14px;margin-top:22px}
+  .hp{position:absolute;left:-9999px}
+  .note{margin:-4px 0 14px;padding:10px 12px;border-radius:6px;font-size:15px;font-weight:600;background:var(--accent-soft);color:var(--navy)}
+  .note.bad{background:#FBE4E1;color:#8E2219}
+  .seg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 16px}
+  .seg label{margin:0}
+  .seg input{display:none}
+  .seg span{display:block;text-align:center;padding:14px 8px;border:2px solid var(--line);background:var(--surface-2);cursor:pointer;
+    clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+  .seg span b{display:block;font:20px var(--display);color:var(--navy)}
+  .seg span small{color:var(--ink-2);font-weight:600}
+  .seg input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+  .seg input:checked+span b,.seg input:checked+span small{color:#fff}
+  .seg3{grid-template-columns:1fr 1fr 1fr}
+  .total{display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fff;padding:14px 16px;margin:0 0 18px;font:22px var(--display);
+    clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
+  .total small{font:600 15px var(--body);color:#C9D6EA}
+  .event{color:#C9D6EA;margin:6px auto 0;max-width:460px;font-weight:600}
+  .event b{color:#fff}
+  .details{white-space:pre-line;font-size:16px;color:var(--ink-2);margin:0 0 4px}
+  .pay{display:block;text-decoration:none;margin:10px 0;padding:16px;font:20px var(--display);text-transform:uppercase;letter-spacing:.04em;color:#fff;
+    clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
+  .pay.venmo{background:#008CFF}.pay.cashapp{background:#00C244}
+  .closed{display:none;max-width:560px;margin:44px auto;text-align:center;background:var(--surface);padding:30px 20px}
+</style>
+
+</head>
+<body>
+<header>
+  <img src="img/gs-logo.png" alt="GS">
+  <div class="badge">Fundraiser</div>
+  <h1 id="title"><span>GS Baseball</span><br>Slow Pitch Softball</h1>
+  <p class="event" id="event"></p>
+</header>
+
+<div class="closed" id="closed"><h2 style="font:26px var(--display);color:var(--navy);margin:0 0 8px">Signups are closed</h2><p>Thanks for supporting GS Baseball!</p></div>
+
+<form id="f" novalidate>
+  <fieldset id="aboutBox" hidden>
+    <legend>About</legend>
+    <p class="details" id="details"></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Sign up</legend>
+    <div class="seg">
+      <label><input type="radio" name="kind" value="team" checked><span><b id="teamPriceL">$200</b><small>Enter a team</small></span></label>
+      <label><input type="radio" name="kind" value="individual"><span><b id="personPriceL">$5</b><small>Per person entry</small></span></label>
+    </div>
+    <div id="teamBox">
+      <label>Team name<input name="teamName" maxlength="60" autocomplete="off"></label>
+      <label>Number of players <small>(optional)</small><input name="players" type="number" min="1" max="40" inputmode="numeric"></label>
+      <label>Player names <small>(optional)</small><textarea name="names" maxlength="1000" placeholder="One per line"></textarea></label>
+    </div>
+    <div id="indBox" hidden>
+      <label>How many people?<input name="people" type="number" min="1" max="20" value="1" inputmode="numeric"></label>
+      <label>Other names <small>(optional)</small><textarea name="others" maxlength="1000" placeholder="Anyone coming with you"></textarea></label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend id="contactL">Team captain</legend>
+    <label>Full name<input name="name" required maxlength="80" autocomplete="name"></label>
+    <div class="row">
+      <label>Phone<input name="phone" type="tel" required maxlength="30" autocomplete="tel"></label>
+      <label>Email<input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+    </div>
+    <label>Notes <small>(optional)</small><textarea name="notes" maxlength="600"></textarea></label>
+    <label>How did you hear about it?<select name="source"><option value="">Select…</option><option>GS Baseball family</option><option>Friend</option><option>Facebook</option><option>Instagram</option><option>Flyer</option><option>Other</option></select></label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Payment</legend>
+    <div class="seg seg3" id="payBox">
+      <label id="venmoOpt"><input type="radio" name="pay" value="venmo" checked><span><b style="font-size:17px">Venmo</b></span></label>
+      <label id="cashOpt"><input type="radio" name="pay" value="cashapp"><span><b style="font-size:17px">Cash App</b></span></label>
+      <label><input type="radio" name="pay" value="cash"><span><b style="font-size:17px">Cash</b><small>at the field</small></span></label>
+    </div>
+    <p class="small" style="margin:-6px 0 14px;color:var(--ink-2)">After you sign up, you’ll get a button that opens Venmo or Cash App with the amount filled in.</p>
+  </fieldset>
+
+  <div class="total"><span>Total <small id="totalWhat"></small></span><span id="total">$200</span></div>
+  <input class="hp" name="website" tabindex="-1" autocomplete="off">
+  <button id="btn" type="submit">Sign up</button>
+  <div class="msg" id="msg"></div>
+</form>
+
+<div class="done" id="done">
+  <div class="ball">🥎</div>
+  <h2>You’re signed up!</h2>
+  <p id="doneText"></p>
+  <div id="payBtns"></div>
+  <p class="small" id="payNote" style="color:var(--ink-2)"></p>
+</div>
+
+<footer>GS Baseball · Fundraiser</footer>
+
+<script src="config.js"></script>
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js';
+import { getAuth, signInAnonymously } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js';
+import { getFirestore, doc, getDoc, setDoc, updateDoc, addDoc, collection, serverTimestamp, increment } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js';
+
+const C = window.FUND_CONFIG || {};
+const $ = s => document.querySelector(s);
+const app = initializeApp(C.FIREBASE);
+const auth = getAuth(app), db = getFirestore(app);
+const ready = signInAnonymously(auth).then(c => c.user.uid);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// Event details and prices, set by the coach in the Hub (Team → Softball Fundraiser → Settings).
+let payTouched = false;
+document.querySelectorAll('input[name=pay]').forEach(r => r.addEventListener('change', () => { payTouched = true; }));
+let E = Object.assign({ title: 'GS Baseball Slow Pitch Softball Fundraiser', teamPrice: 200, personPrice: 5, venmo: '', cashapp: '', open: true }, C.DEFAULTS || {});
+function showEvent() {
+  const t = String(E.title || '').replace(/^GS Baseball\s*/i, '');
+  $('#title').innerHTML = '<span>GS Baseball</span><br>' + esc(t || 'Softball Fundraiser');
+  document.title = E.title || 'GS Baseball Softball Fundraiser';
+  const d = E.date ? new Date(E.date + 'T12:00:00') : null;
+  let tm = ''; if (E.time) { const [hh, mm] = E.time.split(':').map(Number); tm = ((hh % 12) || 12) + ':' + String(mm).padStart(2, '0') + ' ' + (hh < 12 ? 'AM' : 'PM'); }
+  const day = d && !isNaN(d) ? d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) : '';
+  $('#event').innerHTML = [day && '<b>' + esc(day) + '</b>', tm && esc(tm), E.place && esc(E.place)].filter(Boolean).join(' · ');
+  $('#aboutBox').hidden = !E.details; $('#details').textContent = E.details || '';
+  $('#teamPriceL').textContent = '$' + E.teamPrice; $('#personPriceL').textContent = '$' + E.personPrice;
+  $('#venmoOpt').hidden = !E.venmo; $('#cashOpt').hidden = !E.cashapp;
+  // Until the person picks, default to the first available: Venmo, then Cash App, then cash.
+  const sel = document.querySelector('input[name=pay]:checked');
+  if (!payTouched || (sel && sel.closest('label').hidden)) {
+    const first = ['venmo', 'cashapp', 'cash'].find(v => !document.querySelector('input[name=pay][value=' + v + ']').closest('label').hidden);
+    document.querySelector('input[name=pay][value=' + first + ']').checked = true;
+  }
+  if (E.open === false) { $('#f').style.display = 'none'; $('#closed').style.display = 'block'; }
+  update();
+}
+getDoc(doc(db, 'config', 'fundraiser')).then(s => { if (s.exists()) E = Object.assign(E, s.data()); showEvent(); }).catch(showEvent);
+
+const kind = () => document.querySelector('input[name=kind]:checked').value;
+const people = () => Math.max(1, Math.min(20, parseInt($('[name=people]').value, 10) || 1));
+const total = () => kind() === 'team' ? Number(E.teamPrice) || 0 : (Number(E.personPrice) || 0) * people();
+function update() {
+  const team = kind() === 'team';
+  $('#teamBox').hidden = !team; $('#indBox').hidden = team;
+  $('[name=teamName]').required = team;
+  $('#contactL').textContent = team ? 'Team captain' : 'Your info';
+  $('#total').textContent = '$' + total();
+  $('#totalWhat').textContent = team ? '(team entry)' : '(' + people() + ' × $' + E.personPrice + ')';
+}
+document.querySelectorAll('input[name=kind]').forEach(r => r.addEventListener('change', update));
+$('[name=people]').addEventListener('input', update);
+showEvent();
+
+// Count this visit: one record per browser.
+const qs = new URLSearchParams(location.search), ua = navigator.userAgent;
+const device = /iPhone|iPad/i.test(ua) ? 'iPhone/iPad' : /Android/i.test(ua) ? 'Android' : /Mac/i.test(ua) ? 'Mac' : /Windows/i.test(ua) ? 'Windows' : 'Other';
+ready.then(async uid => {
+  const ref = doc(db, 'fundVisits', uid);
+  try { await updateDoc(ref, { last: serverTimestamp(), n: increment(1) }); }
+  catch (e) { try { await setDoc(ref, { uid, first: serverTimestamp(), last: serverTimestamp(), n: 1, ref: (document.referrer || '').slice(0, 200), src: (qs.get('src') || '').slice(0, 40), device }); } catch (_) {} }
+}).catch(() => {});
+
+// Payment links: Venmo opens the app on phones (the web link turns spaces in the note into "+").
+function venmoWeb(amt, note) { return 'https://venmo.com/' + encodeURIComponent(String(E.venmo).replace(/^@/, '')) + '?txn=pay&amount=' + amt.toFixed(2) + '&note=' + encodeURIComponent(note); }
+function venmoApp(amt, note) { return 'venmo://paycharge?txn=pay&recipients=' + encodeURIComponent(String(E.venmo).replace(/^@/, '')) + '&amount=' + amt.toFixed(2) + '&note=' + encodeURIComponent(note); }
+function cashLink(amt) { return 'https://cash.app/$' + encodeURIComponent(String(E.cashapp).replace(/^\$/, '')) + '/' + (amt % 1 ? amt.toFixed(2) : String(amt)); }
+function payButtons(d) {
+  const note = 'GS Softball Fundraiser · ' + (d.kind === 'team' ? d.teamName : d.name);
+  let h = '';
+  const v = E.venmo ? '<a class="pay venmo" id="venmoBtn" href="' + esc(venmoWeb(d.total, note)) + '" data-app="' + esc(venmoApp(d.total, note)) + '">Pay $' + d.total + ' with Venmo</a>' : '';
+  const c = E.cashapp ? '<a class="pay cashapp" href="' + esc(cashLink(d.total)) + '">Pay $' + d.total + ' with Cash App</a>' : '';
+  if (d.pay === 'cashapp') h = c + v; else if (d.pay === 'venmo') h = v + c; else h = '';
+  $('#payBtns').innerHTML = h;
+  const who = d.kind === 'team' ? d.teamName : d.name;
+  $('#payNote').textContent = d.pay === 'cash' ? 'Bring $' + d.total + ' in cash to the field. Thank you!'
+    : d.pay === 'cashapp' ? 'In Cash App, add “' + who + '” in the note so we know who paid. Thank you for supporting GS Baseball!'
+    : 'Venmo fills in the note “' + note + '” so we know who paid. Thank you for supporting GS Baseball!';
+  const vb = $('#venmoBtn');
+  if (vb && /iPhone|iPad|Android/i.test(ua)) vb.addEventListener('click', ev => {
+    ev.preventDefault();
+    const web = vb.href; let left = false;
+    const onHide = () => { left = true; }; document.addEventListener('visibilitychange', onHide, { once: true });
+    location.href = vb.dataset.app;
+    setTimeout(() => { if (!left && !document.hidden) location.href = web; }, 1500);
+  });
+}
+
+const cut = (v, n) => String(v || '').trim().slice(0, n);
+$('#f').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target, msg = $('#msg'), btn = $('#btn');
+  msg.textContent = '';
+  if (!f.checkValidity()) { const bad = f.querySelector(':invalid'); msg.textContent = 'Please fill in: ' + (bad.closest('label')?.childNodes[0].textContent.trim() || 'required fields'); bad.focus(); return; }
+  const fd = new FormData(f);
+  if (fd.get('website')) return;
+  const k = kind(), team = k === 'team';
+  btn.disabled = true; btn.textContent = 'Signing up…';
+  try {
+    const uid = await ready;
+    const data = {
+      uid, at: serverTimestamp(), seen: false, paid: false, kind: k,
+      teamName: team ? cut(fd.get('teamName'), 60) : '', name: cut(fd.get('name'), 80), phone: cut(fd.get('phone'), 30), email: cut(fd.get('email'), 120),
+      players: team ? Math.max(0, Math.min(40, parseInt(fd.get('players'), 10) || 0)) : 0, people: team ? 0 : people(),
+      names: cut(team ? fd.get('names') : fd.get('others'), 1000), total: total(), pay: cut(fd.get('pay'), 10) || 'cash',
+      notes: cut(fd.get('notes'), 600), source: cut(qs.get('src') ? 'Link: ' + qs.get('src') : fd.get('source'), 40)
+    };
+    if (!data.source) data.source = cut(fd.get('source'), 40);
+    await addDoc(collection(db, 'fundSignups'), data);
+    f.style.display = 'none';
+    $('#doneText').textContent = team ? data.teamName + ' is in! ' + (data.pay === 'cash' ? '' : 'Tap below to pay the $' + data.total + ' team fee.') : data.name + (data.people > 1 ? ' + ' + (data.people - 1) : '') + ' signed up. ' + (data.pay === 'cash' ? '' : 'Tap below to pay $' + data.total + '.');
+    payButtons(data);
+    $('#done').style.display = 'block'; window.scrollTo(0, 0);
+  } catch (err) {
+    console.error(err);
+    msg.textContent = 'Something went wrong — please try again.';
+    btn.disabled = false; btn.textContent = 'Sign up';
+  }
+});
+</script>
+</body>
+</html>
