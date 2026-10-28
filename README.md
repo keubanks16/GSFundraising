@@ -4,7 +4,7 @@ Public signup page for the GS Baseball slow pitch softball fundraiser. Teams sig
 
 Every signup and visit goes straight into the **GS Baseball Hub**: **Team → Softball Fundraiser**. You get a phone notification for each signup.
 
-Address: `https://fundraiser.stingerz-baseball.com` (each fundraiser has its own folder)
+Address: `https://fundraising.stingerz-baseball.com` (each fundraiser has its own folder)
 
 - `index.html` — landing page listing every fundraiser
 - `softball/` — the softball signup page (`softball/config.js`: default title and prices; the Hub's settings replace them)
@@ -17,7 +17,7 @@ Address: `https://fundraiser.stingerz-baseball.com` (each fundraiser has its own
 1. **GitHub Pages:** this repo → Settings → Pages → Deploy from branch `main`, `/ (root)`.
 2. **Firebase:** publish the latest `firestore.rules` from the Hub repo.
 3. **Cloudflare:** deploy the latest `worker.js` from the Hub repo (for notifications).
-4. **GoDaddy DNS:** CNAME `fundraiser` → `keubanks16.github.io` (the `CNAME` file sets the custom domain for GitHub Pages).
+4. **GoDaddy DNS:** CNAME `fundraising` → `keubanks16.github.io` (the `CNAME` file sets the custom domain for GitHub Pages).
 
 ## Tracking links
-Add `?src=` to the link you share (`fundraiser.stingerz-baseball.com/softball/?src=facebook`) and the Hub shows where each signup came from.
+Add `?src=` to the link you share (`fundraising.stingerz-baseball.com/softball/?src=facebook`) and the Hub shows where each signup came from.
